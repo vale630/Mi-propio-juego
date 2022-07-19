@@ -5,7 +5,7 @@ var tucan, tucanImg;
 var baloo, balooImg;
 var puerta, puertaImg;
 var trampolin, trampolinImg;
-
+var gameState = "play";
 
 function preload(){
 
@@ -35,13 +35,32 @@ explorador.scale = 0.25;
 
 function draw(){
     background (0);
+    if (gameState === "play"){
+        if (keyDown("SPACE")){
+            explorador.velocity = -2;
+        }
+        if (keyDown("UP_ARROW")){
+            explorador.y = -2;
+            explorador.x = +2;
+        }
+        if (keyDown("DOWN_ARROW")){
+            explorador.y = 2;
+        }
+        
+
+
+    }
+    
  explorador.velocityY = 4;
 
- explorador.y = World.mouseY;
+ //explorador.y = World.mouseY;
+
+
+explorador.velocityY = explorador.velocity+0.8
 
 //codigo para fondo
-if (bg.x<0){
-    bg.x = bg.width/8;
+if (bg.x<400){
+    bg.x = bg.width/2;
 }
 
 drawSprites();
